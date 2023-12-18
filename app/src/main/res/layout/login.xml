@@ -50,6 +50,12 @@
         android:layout_height="wrap_content"
         android:text="Đăng nhập"/>
 
+    <Button
+        android:id="@+id/button_nologin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Không đăng nhập" />
+
     <TextView
         android:id="@+id/registerTextView"
         android:layout_width="match_parent"

@@ -26,7 +26,8 @@ import danhsach.List;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText usernameEditText, passwordEditText;
-    private Button loginButton;
+    private Button loginButton, buttonNoLogin;
+
 
     private TextView registerTextView;
 
@@ -41,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         registerTextView = findViewById(R.id.registerTextView);
-
+        buttonNoLogin = findViewById(R.id.button_nologin);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +75,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        buttonNoLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(AppDefault.CurrentCustomerKey, AppDefault.CustomerDefaultUsername);
+                editor.apply();
+                _customerHelper.InsertCustomerDefault();
+                backHome();
+            }
+        });
+
 
     }
 
@@ -81,7 +94,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void ShowRegister(){
         Intent intentActiveList = new Intent(this,RegisterActivity.class);
-        intentActiveList.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intentActiveList);
 
     }

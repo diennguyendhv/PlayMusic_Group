@@ -7,8 +7,7 @@ public class Customer {
     private String Password;
     private int StatusId;
 
-    public Customer(int id, String name, String userName, String password, int statusId) {
-        Id = id;
+    public Customer( String name, String userName, String password, int statusId) {
         Name = name;
         UserName = userName;
         Password = password;
@@ -17,10 +16,6 @@ public class Customer {
 
     public int getId() {
         return Id;
-    }
-
-    public void setId(int id) {
-        Id = id;
     }
 
     public String getName() {

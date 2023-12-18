@@ -35,6 +35,8 @@ import java.util.Calendar;
 import java.util.Random;
 
 import context.DataMusic;
+import context.app_default.AppDefault;
+import context.app_sql.CustomerHelper;
 import danhsach.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -63,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.remove("username");
-        editor.remove("password");
         editor.apply();
         Toast.makeText(MainActivity.this, "Logged out", Toast.LENGTH_SHORT).show();
 
@@ -73,9 +74,14 @@ public class MainActivity extends AppCompatActivity {
         String savedUsername = sharedPreferences.getString("username", "");
 
         if (!savedUsername.isEmpty()) {
-            Toast.makeText(MainActivity.this, "Đã đăng nhập vào tài khoản: " + savedUsername, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(MainActivity.this, "Đã đăng nhập vào tài khoản: " + savedUsername, Toast.LENGTH_SHORT).show();
         } else {
-            showLogin();
+            CustomerHelper customerHelper = new CustomerHelper(this);
+            customerHelper.InsertCustomerDefault();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(AppDefault.CurrentCustomerKey, AppDefault.CustomerDefaultUsername);
+            editor.apply();
+
         }
     }
 

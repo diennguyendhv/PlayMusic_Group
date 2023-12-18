@@ -13,6 +13,7 @@ import java.util.List;
 
 import context.app_data.AppLogin;
 import context.app_data.Customer;
+import context.app_default.AppDefault;
 import context.app_default.DbDefault;
 
 public class CustomerHelper extends SQLiteOpenHelper {
@@ -36,6 +37,7 @@ public class CustomerHelper extends SQLiteOpenHelper {
                 ")";
 
         db.execSQL(queryCreateTable);
+        InsertCustomerDefault();
     }
 
     @Override
@@ -56,7 +58,6 @@ public class CustomerHelper extends SQLiteOpenHelper {
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             items.add(new Customer(
-                    cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
@@ -78,7 +79,6 @@ public class CustomerHelper extends SQLiteOpenHelper {
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             item = new Customer(
-                    cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
@@ -98,7 +98,6 @@ public class CustomerHelper extends SQLiteOpenHelper {
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             item = new Customer(
-                    cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
@@ -118,7 +117,6 @@ public class CustomerHelper extends SQLiteOpenHelper {
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             item = new Customer(
-                    cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
@@ -140,6 +138,15 @@ public class CustomerHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("INSERT INTO " + TABLE_NAME +" (name, username, password, statusid ) VALUES (?,?,?,1)",
                 new String[]{entity.getName(), entity.getUserName(), entity.getPassword()});
+    }
+
+
+    public void InsertCustomerDefault(){
+        Customer customer = getCustomerByUsername(AppDefault.CustomerDefaultUsername);
+        if(customer == null){
+            Customer customer2 = new Customer("Mặc định",AppDefault.CustomerDefaultUsername,AppDefault.CustomerDefaultPassswor,1);
+            insertCustomer(customer2);
+        }
     }
 
 

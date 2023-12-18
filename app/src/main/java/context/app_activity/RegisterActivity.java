@@ -69,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                     // Load saved credentials if available
                     SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    Customer customer = new Customer(0,name,username,password,1);
+                    Customer customer = new Customer(name,username,password,1);
                     _customerHelper.insertCustomer(customer);
                     editor.putString(AppDefault.CurrentCustomerKey, username);
                     editor.apply();
@@ -94,7 +94,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
     private void  showLogin(){
         Intent intentActiveLogin = new Intent(this, LoginActivity.class);
-        intentActiveLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intentActiveLogin);
     }
 
