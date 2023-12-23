@@ -26,8 +26,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
@@ -36,6 +36,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.core:core-splashscreen:1.0.0")
     testImplementation("junit:junit:4.13.2")
     implementation("com.diogobernardino:williamchart:2.2")
     implementation("com.h6ah4i.android.widget.verticalseekbar:verticalseekbar:1.0.0")

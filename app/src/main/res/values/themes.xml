@@ -1,11 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.PlayMusic_Group" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:includeFontPadding">false</item>
     </style>
 
-    <style name="Theme.PlayMusic_Group" parent="Base.Theme.PlayMusic_Group" />
+    <style name="Theme.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/backgroundSplash</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/logo_foreground</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+    </style>
 
     <style name="CustomSwitch" parent="Theme.AppCompat.Light">
         <item name="colorControlActivated">#C95E5E</item>

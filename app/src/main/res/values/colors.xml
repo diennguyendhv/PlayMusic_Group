@@ -7,5 +7,7 @@
     <color name="primaryLightColor">#313131</color>
     <color name="primaryDarkColor">#101010</color>
     <color name="playingCardColor">#444caf50</color>
+    <color name="backgroundSplash">#1AAD5B</color>
+
     <color name="textColor">#FAFAFA</color>
 </resources>

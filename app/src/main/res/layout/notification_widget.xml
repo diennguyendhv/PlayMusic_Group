@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/nw_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nw_tv_description"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nw_tv_title"
+        android:layout_marginTop="4dp"
+        android:ellipsize="marquee"
+        android:maxLines="1"
+        android:text="Ten Bai hat"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/ic_previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nw_tv_description"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_previous" />
+
+    <ImageView
+        android:id="@+id/ic_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ic_previous"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@id/ic_previous"
+        android:src="@drawable/ic_pause" />
+
+    <ImageView
+
+        android:id="@+id/ic_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ic_previous"
+        android:layout_marginEnd="8dp"
+        android:layout_toEndOf="@id/ic_play"
+        android:src="@drawable/ic_next" />
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="16dp"
+        android:src="@mipmap/logo" />
+</RelativeLayout>
